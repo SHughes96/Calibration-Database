@@ -13,11 +13,6 @@ import FSTest as fs
 from astropy.stats import sigma_clip
 import bottleneck as bn
 
-###tracing back runtime warnings-- can remove after fixing
-#import warnings
-#warnings.simplefilter("error")
-################################
-
 ID = np.arange(0, 1009).astype(list)
 ID = list(ID)
 
@@ -36,27 +31,6 @@ class offset_calc():
 
         print('Database connection established')
         return
-
-    # def sigclip(self, a, thresh=2.5,iter=1):
-    #     try:
-    #         if type(a)==list:
-    #             a = np.asarray(a)
-    #         a1 = a[np.where(np.abs(a-a.mean()) < thresh*a.std())]
-    #         if (iter == 1):
-    #             return a1
-    #         else:
-    #             return self.sigclip(a1,thresh,iter-1)
-    #     except:
-    #         print('Could not fully clip, restarting with default threshold and iterations')
-    #         thresh, iter = 2.5, 1
-    #         if type(a)==list:
-    #             a = np.asarray(a)
-    #         a1 = a[np.where(np.abs(a-a.mean()) < thresh*a.std())]
-    #         if (iter == 1):
-    #             return a1
-    #         else:
-    #             return self.sigclip(a1,thresh,iter-1)
-
 
 
     def calculate_offset(self, move_type, plate, robot, sigmaclip=True):
@@ -202,19 +176,6 @@ class offset_calc():
         else:
             return sorted(np.asarray(timings))
 
-    # def calculate_timings_average(self, p, r, dir='/home/slh/databse/'):
-    #     dirname=dir+move_type+'_mean_timings.png'
-    #     mean_timings = []
-    #     for index, item in enumerate(self.id):
-    #         T = self.calculate_timings_indiv(item, plate=p, robot=r, show=False)
-    #         mean_diff = T.mean
-    #         mean_timings.append((item, mean_diff))
-
-
-    #     #calculating the average move timing per fibre
-
-
-    #     return
 
 
 
